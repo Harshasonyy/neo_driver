@@ -1,0 +1,156 @@
+################################################################
+################################################################
+#                                                              #
+#          .ymal for Neobotix RelayBoardV2                     #
+#                                                              #
+################################################################
+################################################################
+
+################################################
+#    device on which relayboard is attached    #
+################################################
+ComPort: /dev/ttyUSB1
+message_timeout: 2.0
+requestRate: 25
+
+#################################################
+#           additional hardware                 #
+#################################################
+# 0: hardware not avaliable
+# 1: hardware avaliable
+ 
+hasIOBoard: 0
+hasUSBoard: 0
+
+#################################################
+#               logging                         #
+#################################################
+log: False
+
+#################################################
+#              motor configuration              #
+#################################################
+#	mp_400: 	drive 2 and drive 3 should be active
+#	mpo_500: 	drive 2, drive 3, drive 4 and drive 5 should be active
+#	mpo_700:	with cob_packages all drive should be deactivated
+			without cob_packages all drives should be activated
+
+drive2:
+  motor_active: 1
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: 1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_front_left_joint
+
+drive3:
+  motor_active: 1
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: -1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_front_right_joint
+
+drive4:
+  motor_active: 1
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: 1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_back_left_joint 
+
+drive5:
+  motor_active: 1
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: -1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_back_right_joint
+
+drive6:
+  motor_active: 0
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: 1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_front_left_joint
+
+drive7:
+  motor_active: 0
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: -1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_front_right_joint
+
+drive8:
+  motor_active: 0
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: 1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_back_left_joint 
+
+drive9:
+  motor_active: 0
+  homing_active: 0
+  EncIncrPerRevMot: 4096
+  VelMeasFrqHz: 1
+  GearRatio: 25
+  BeltRatio: 1
+  Sign: -1.0
+  VelMaxEncIncrS: 300000
+  VelPModeEncIncrS: 10
+  AccIncrS2: 500000
+  DecIncrS2: 500000
+  Modulo: 1000000
+  joint_name: wheel_back_right_joint
