@@ -598,17 +598,17 @@ void neo_relayboardV2_node::PublishUSBoardData()
 	//fill in header
 	USRange1Header.seq = 1; 			//uint32
 	USRange1Header.stamp = ros::Time::now(); 	//time
-	USRange1Header.frame_ID = "usrangesensor1";	//string
+	USRange1Header.frame_id = "usrangesensor1";	//string
 
 	USRange1Msg.header = USRange1Header;
 	USRange1Msg.radiation_type = 0; 		//uint8   => Enum ULTRASOUND=0; INFRARED=1
-	USRange1Msg.flied_of_view = 0.0; 		//float32 => hardware check needed! [rad]
+	USRange1Msg.field_of_view = 0.0; 		//float32 => hardware check needed! [rad]
 	USRange1Msg.min_range = 0.1; 			//float32 => [m]
 	USRange1Msg.max_range = 2.0; 			//float32 => [m]
 	USRange1Msg.range = (float)usSensors[0]; 	//float32 => [m]
 
 	//publish data for first USrange sensor
-	topicPub_USRangeSensor1.publish(USRanger1Msg);
+	topicPub_USRangeSensor1.publish(USRange1Msg);
 	
 	
 }
