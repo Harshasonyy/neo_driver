@@ -327,10 +327,12 @@ int RelayBoardV2::init(const char* cdevice_name, int iactive_motors, int ihoming
 
 	if((iext_hardware & 1) == 1) //IOBoard
 	{
+		ROS_INFO("Ext. Hardware: IOBoard");
 		m_iNumBytesRec += 20;
 	}
 	if((iext_hardware & 2) == 1) //USBoard
 	{
+		ROS_INFO("Ext. Hardware: USBoard");
 		m_iNumBytesRec += 26;
 	}
 

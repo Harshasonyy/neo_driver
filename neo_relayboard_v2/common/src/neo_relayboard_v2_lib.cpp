@@ -564,13 +564,14 @@ void neo_relayboardV2_node::getNewVelocitiesFomTopic(const trajectory_msgs::Join
 void neo_relayboardV2_node::PublishUSBoardData()
 {
 	if(!m_iRelayBoard_available || !m_ihasUSBoard) return;
-	int usSensors[8];
+	int usSensors1[8];
+	int usSensors2[8];
 	int usAnalog[4];
 	neo_msgs::USBoard usBoard;
-	m_SerRelayBoard->getUSBoardData1To8(usSensors);
-	for(int i=0; i<8; i++) usBoard.sensor[i] = usSensors[i];
-	m_SerRelayBoard->getUSBoardData9To16(usSensors);
-	for(int i=0; i<8; i++) usBoard.sensor[i+8] = usSensors[i];
+	m_SerRelayBoard->getUSBoardData1To8(usSensors1);
+	for(int i=0; i<8; i++) usBoard.sensor[i] = usSensors1[i];
+	m_SerRelayBoard->getUSBoardData9To16(usSensors2);
+	for(int i=0; i<8; i++) usBoard.sensor[i+8] = usSensors2[i];
 	m_SerRelayBoard->getUSBoardAnalogIn(usAnalog);
 	for(int i=0; i<4; i++) usBoard.analog[i] = usAnalog[i];	
 	topicPub_usBoard.publish(usBoard);
@@ -596,16 +597,16 @@ void neo_relayboardV2_node::PublishUSBoardData()
 	
 	//create USRanger1Msg
 	//fill in header
-	USRange1Header.seq = 1; 			//uint32
-	USRange1Header.stamp = ros::Time::now(); 	//time
-	USRange1Header.frame_id = "usrangesensor1";	//string
+	USRange1Header.seq = 1; 				//uint32
+	USRange1Header.stamp = ros::Time::now(); 		//time
+	USRange1Header.frame_id = "usrangesensor1";		//string
 
 	USRange1Msg.header = USRange1Header;
-	USRange1Msg.radiation_type = 0; 		//uint8   => Enum ULTRASOUND=0; INFRARED=1
-	USRange1Msg.field_of_view = 0.0; 		//float32 => hardware check needed! [rad]
-	USRange1Msg.min_range = 0.1; 			//float32 => [m]
-	USRange1Msg.max_range = 2.0; 			//float32 => [m]
-	USRange1Msg.range = (float)usSensors[0]; 	//float32 => [m]
+	USRange1Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange1Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange1Msg.min_range = 0.1; 				//float32 [m]
+	USRange1Msg.max_range = 1.2; 				//float32 [m]
+	USRange1Msg.range = ((float)usBoard.sensor[0]/1000); 	//float32 [cm] => [m]
 
 	//publish data for first USrange sensor
 	topicPub_USRangeSensor1.publish(USRange1Msg);
