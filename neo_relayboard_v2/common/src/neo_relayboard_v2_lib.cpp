@@ -244,6 +244,23 @@ int neo_relayboardV2_node::init()
 		topicSub_startUSBoard = n.subscribe("/USBoard/Start",1,&neo_relayboardV2_node::startUSBoard, this);
 		topicSub_stopUSBoard = n.subscribe("/USBoard/Stop",1,&neo_relayboardV2_node::stopUSBoard, this);
 
+		topicPub_USRangeSensor1 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor1",1);
+		topicPub_USRangeSensor2 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor2",1);
+		topicPub_USRangeSensor3 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor3",1);
+		topicPub_USRangeSensor4 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor4",1);
+		topicPub_USRangeSensor5 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor5",1);
+		topicPub_USRangeSensor6 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor6",1);
+		topicPub_USRangeSensor7 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor7",1);
+		topicPub_USRangeSensor8 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor8",1);
+		topicPub_USRangeSensor9 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor9",1);
+		topicPub_USRangeSensor10 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor10",1);
+		topicPub_USRangeSensor11 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor11",1);
+		topicPub_USRangeSensor12 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor12",1);
+		topicPub_USRangeSensor13 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor13",1);
+		topicPub_USRangeSensor14 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor14",1);
+		topicPub_USRangeSensor15 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor15",1);
+		topicPub_USRangeSensor16 = n.advertise<sensor_msgs::Range>("/USBoard/Sensor16",1);
+
 	}
 	topicPub_keypad = n.advertise<neo_msgs::Keypad>("/RelayBoardV2/Keypad",1);
 
@@ -557,6 +574,43 @@ void neo_relayboardV2_node::PublishUSBoardData()
 	m_SerRelayBoard->getUSBoardAnalogIn(usAnalog);
 	for(int i=0; i<4; i++) usBoard.analog[i] = usAnalog[i];	
 	topicPub_usBoard.publish(usBoard);
+
+	//create a sensor_msgs::Range for each range sensor
+	std_msgs::Header USRange1Header;
+	sensor_msgs::Range USRange1Msg;
+	sensor_msgs::Range USRange2Msg;
+	sensor_msgs::Range USRange3Msg;
+	sensor_msgs::Range USRange4Msg;
+	sensor_msgs::Range USRange5Msg;
+	sensor_msgs::Range USRange6Msg;
+	sensor_msgs::Range USRange7Msg;
+	sensor_msgs::Range USRange8Msg;
+	sensor_msgs::Range USRange9Msg;
+	sensor_msgs::Range USRange10Msg;
+	sensor_msgs::Range USRange11Msg;
+	sensor_msgs::Range USRange12Msg;
+	sensor_msgs::Range USRange13Msg;
+	sensor_msgs::Range USRange14Msg;
+	sensor_msgs::Range USRange15Msg;
+	sensor_msgs::Range USRange16Msg;
+	
+	//create USRanger1Msg
+	//fill in header
+	USRange1Header.seq = 1; 			//uint32
+	USRange1Header.stamp = ros::Time::now(); 	//time
+	USRange1Header.frame_ID = "usrangesensor1";	//string
+
+	USRange1Msg.header = USRange1Header;
+	USRange1Msg.radiation_type = 0; 		//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange1Msg.flied_of_view = 0.0; 		//float32 => hardware check needed! [rad]
+	USRange1Msg.min_range = 0.1; 			//float32 => [m]
+	USRange1Msg.max_range = 2.0; 			//float32 => [m]
+	USRange1Msg.range = (float)usSensors[0]; 	//float32 => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor1.publish(USRanger1Msg);
+	
+	
 }
 void neo_relayboardV2_node::startUSBoard(const std_msgs::Int16& configuration)
 {

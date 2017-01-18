@@ -42,7 +42,9 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/Int16.h>
 #include <std_msgs/Empty.h>
+#include <std_msgs/Header.h>
 #include <sensor_msgs/JointState.h>
+#include <sensor_msgs/Range.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <neo_msgs/EmergencyStopState.h>
 #include <neo_msgs/Keypad.h>
@@ -85,8 +87,26 @@ class neo_relayboardV2_node
 		ros::Subscriber topicSub_drives;		//
 		//ultrasonic board:
 		ros::Publisher topicPub_usBoard;
+		ros::Publisher topicPub_USRangeSensor1;
+		ros::Publisher topicPub_USRangeSensor2;
+		ros::Publisher topicPub_USRangeSensor3;
+		ros::Publisher topicPub_USRangeSensor4;
+		ros::Publisher topicPub_USRangeSensor5;
+		ros::Publisher topicPub_USRangeSensor6;
+		ros::Publisher topicPub_USRangeSensor7;
+		ros::Publisher topicPub_USRangeSensor8;
+		ros::Publisher topicPub_USRangeSensor9;
+		ros::Publisher topicPub_USRangeSensor10;
+		ros::Publisher topicPub_USRangeSensor11;
+		ros::Publisher topicPub_USRangeSensor12;
+		ros::Publisher topicPub_USRangeSensor13;
+		ros::Publisher topicPub_USRangeSensor14;
+		ros::Publisher topicPub_USRangeSensor15;
+		ros::Publisher topicPub_USRangeSensor16;
+
 		ros::Subscriber topicSub_startUSBoard;
-		ros::Subscriber topicSub_stopUSBoard;		
+		ros::Subscriber topicSub_stopUSBoard;
+		
 		//io board:
 		ros::Publisher topicPub_ioDigIn;
 		ros::Publisher topicPub_ioDigOut;
