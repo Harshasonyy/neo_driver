@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node pkg="tf" type="static_transform_publisher" name="USRangeSensor_4_tfS" args="0.45 -0.22 0.37 -1.57 0 0 base_link usrangesensor4  10" />
+	<!-- translatation from base to laser scanner in X Y Z and Rotation in Roll Pitch Yaw [rad] -->
+
+</launch>

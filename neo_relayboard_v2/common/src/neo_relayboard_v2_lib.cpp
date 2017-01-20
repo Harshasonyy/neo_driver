@@ -578,6 +578,21 @@ void neo_relayboardV2_node::PublishUSBoardData()
 
 	//create a sensor_msgs::Range for each range sensor
 	std_msgs::Header USRange1Header;
+	std_msgs::Header USRange2Header;
+	std_msgs::Header USRange3Header;
+	std_msgs::Header USRange4Header;
+	std_msgs::Header USRange5Header;
+	std_msgs::Header USRange6Header;
+	std_msgs::Header USRange7Header;
+	std_msgs::Header USRange8Header;
+	std_msgs::Header USRange9Header;
+	std_msgs::Header USRange10Header;
+	std_msgs::Header USRange11Header;
+	std_msgs::Header USRange12Header;
+	std_msgs::Header USRange13Header;
+	std_msgs::Header USRange14Header;
+	std_msgs::Header USRange15Header;
+	std_msgs::Header USRange16Header;
 	sensor_msgs::Range USRange1Msg;
 	sensor_msgs::Range USRange2Msg;
 	sensor_msgs::Range USRange3Msg;
@@ -595,6 +610,7 @@ void neo_relayboardV2_node::PublishUSBoardData()
 	sensor_msgs::Range USRange15Msg;
 	sensor_msgs::Range USRange16Msg;
 	
+	//-------------------------------------------SENSOR1--------------------------------------------------------
 	//create USRanger1Msg
 	//fill in header
 	USRange1Header.seq = 1; 				//uint32
@@ -606,12 +622,281 @@ void neo_relayboardV2_node::PublishUSBoardData()
 	USRange1Msg.field_of_view = 1.05; 			//float32 [rad]
 	USRange1Msg.min_range = 0.1; 				//float32 [m]
 	USRange1Msg.max_range = 1.2; 				//float32 [m]
-	USRange1Msg.range = ((float)usBoard.sensor[0]/1000); 	//float32 [cm] => [m]
+	USRange1Msg.range = ((float)usBoard.sensor[0]/100); 	//float32 [cm] => [m]
 
 	//publish data for first USrange sensor
 	topicPub_USRangeSensor1.publish(USRange1Msg);
+	//------------------------------------------------------------------------------------------------------------
 	
+	//-------------------------------------------SENSOR2--------------------------------------------------------
+	//create USRanger2Msg
+	//fill in header
+	USRange2Header.seq = 1; 				//uint32
+	USRange2Header.stamp = ros::Time::now(); 		//time
+	USRange2Header.frame_id = "usrangesensor2";		//string
+
+	USRange2Msg.header = USRange2Header;
+	USRange2Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange2Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange2Msg.min_range = 0.1; 				//float32 [m]
+	USRange2Msg.max_range = 1.2; 				//float32 [m]
+	USRange2Msg.range = ((float)usBoard.sensor[1]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor2.publish(USRange2Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR3--------------------------------------------------------
+	//create USRanger3Msg
+	//fill in header
+	USRange3Header.seq = 1; 				//uint32
+	USRange3Header.stamp = ros::Time::now(); 		//time
+	USRange3Header.frame_id = "usrangesensor3";		//string
+
+	USRange3Msg.header = USRange3Header;
+	USRange3Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange3Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange3Msg.min_range = 0.1; 				//float32 [m]
+	USRange3Msg.max_range = 1.2; 				//float32 [m]
+	USRange3Msg.range = ((float)usBoard.sensor[2]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor3.publish(USRange3Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR4--------------------------------------------------------
+	//create USRanger4Msg
+	//fill in header
+	USRange4Header.seq = 1; 				//uint32
+	USRange4Header.stamp = ros::Time::now(); 		//time
+	USRange4Header.frame_id = "usrangesensor4";		//string
+
+	USRange4Msg.header = USRange4Header;
+	USRange4Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange4Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange4Msg.min_range = 0.1; 				//float32 [m]
+	USRange4Msg.max_range = 1.2; 				//float32 [m]
+	USRange4Msg.range = ((float)usBoard.sensor[3]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor4.publish(USRange4Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR5--------------------------------------------------------
+	//create USRanger5Msg
+	//fill in header
+	USRange5Header.seq = 1; 				//uint32
+	USRange5Header.stamp = ros::Time::now(); 		//time
+	USRange5Header.frame_id = "usrangesensor5";		//string
+
+	USRange5Msg.header = USRange5Header;
+	USRange5Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange5Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange5Msg.min_range = 0.1; 				//float32 [m]
+	USRange5Msg.max_range = 1.2; 				//float32 [m]
+	USRange5Msg.range = ((float)usBoard.sensor[4]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor5.publish(USRange5Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR6--------------------------------------------------------
+	//create USRanger6Msg
+	//fill in header
+	USRange6Header.seq = 1; 				//uint32
+	USRange6Header.stamp = ros::Time::now(); 		//time
+	USRange6Header.frame_id = "usrangesensor6";		//string
+
+	USRange6Msg.header = USRange6Header;
+	USRange6Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange6Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange6Msg.min_range = 0.1; 				//float32 [m]
+	USRange6Msg.max_range = 1.2; 				//float32 [m]
+	USRange6Msg.range = ((float)usBoard.sensor[5]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor6.publish(USRange6Msg);
+	//------------------------------------------------------------------------------------------------------------
 	
+	//-------------------------------------------SENSOR7--------------------------------------------------------
+	//create USRanger4Msg
+	//fill in header
+	USRange7Header.seq = 1; 				//uint32
+	USRange7Header.stamp = ros::Time::now(); 		//time
+	USRange7Header.frame_id = "usrangesensor7";		//string
+
+	USRange7Msg.header = USRange7Header;
+	USRange7Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange7Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange7Msg.min_range = 0.1; 				//float32 [m]
+	USRange7Msg.max_range = 1.2; 				//float32 [m]
+	USRange7Msg.range = ((float)usBoard.sensor[6]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor7.publish(USRange7Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR8--------------------------------------------------------
+	//create USRanger8Msg
+	//fill in header
+	USRange8Header.seq = 1; 				//uint32
+	USRange8Header.stamp = ros::Time::now(); 		//time
+	USRange8Header.frame_id = "usrangesensor8";		//string
+
+	USRange8Msg.header = USRange8Header;
+	USRange8Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange8Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange8Msg.min_range = 0.1; 				//float32 [m]
+	USRange8Msg.max_range = 1.2; 				//float32 [m]
+	USRange8Msg.range = ((float)usBoard.sensor[7]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor8.publish(USRange8Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR9--------------------------------------------------------
+	//create USRanger4Msg
+	//fill in header
+	USRange9Header.seq = 1; 				//uint32
+	USRange9Header.stamp = ros::Time::now(); 		//time
+	USRange9Header.frame_id = "usrangesensor9";		//string
+
+	USRange9Msg.header = USRange9Header;
+	USRange9Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange9Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange9Msg.min_range = 0.1; 				//float32 [m]
+	USRange9Msg.max_range = 1.2; 				//float32 [m]
+	USRange9Msg.range = ((float)usBoard.sensor[8]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor9.publish(USRange9Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR10-------------------------------------------------------
+	//create USRanger10Msg
+	//fill in header
+	USRange10Header.seq = 1; 				//uint32
+	USRange10Header.stamp = ros::Time::now(); 		//time
+	USRange10Header.frame_id = "usrangesensor10";		//string
+
+	USRange10Msg.header = USRange10Header;
+	USRange10Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange10Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange10Msg.min_range = 0.1; 				//float32 [m]
+	USRange10Msg.max_range = 1.2; 				//float32 [m]
+	USRange10Msg.range = ((float)usBoard.sensor[9]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor10.publish(USRange10Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR11-------------------------------------------------------
+	//create USRanger11Msg
+	//fill in header
+	USRange11Header.seq = 1; 				//uint32
+	USRange11Header.stamp = ros::Time::now(); 		//time
+	USRange11Header.frame_id = "usrangesensor11";		//string
+
+	USRange11Msg.header = USRange11Header;
+	USRange11Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange11Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange11Msg.min_range = 0.1; 				//float32 [m]
+	USRange11Msg.max_range = 1.2; 				//float32 [m]
+	USRange11Msg.range = ((float)usBoard.sensor[10]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor11.publish(USRange11Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR12-------------------------------------------------------
+	//create USRanger12Msg
+	//fill in header
+	USRange12Header.seq = 1; 				//uint32
+	USRange12Header.stamp = ros::Time::now(); 		//time
+	USRange12Header.frame_id = "usrangesensor12";		//string
+
+	USRange12Msg.header = USRange12Header;
+	USRange12Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange12Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange12Msg.min_range = 0.1; 				//float32 [m]
+	USRange12Msg.max_range = 1.2; 				//float32 [m]
+	USRange12Msg.range = ((float)usBoard.sensor[11]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor12.publish(USRange12Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR13-------------------------------------------------------
+	//create USRanger11Msg
+	//fill in header
+	USRange13Header.seq = 1; 				//uint32
+	USRange13Header.stamp = ros::Time::now(); 		//time
+	USRange13Header.frame_id = "usrangesensor13";		//string
+
+	USRange13Msg.header = USRange13Header;
+	USRange13Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange13Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange13Msg.min_range = 0.1; 				//float32 [m]
+	USRange13Msg.max_range = 1.2; 				//float32 [m]
+	USRange13Msg.range = ((float)usBoard.sensor[12]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor13.publish(USRange13Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR14-------------------------------------------------------
+	//create USRanger14Msg
+	//fill in header
+	USRange14Header.seq = 1; 				//uint32
+	USRange14Header.stamp = ros::Time::now(); 		//time
+	USRange14Header.frame_id = "usrangesensor14";		//string
+
+	USRange14Msg.header = USRange14Header;
+	USRange14Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange14Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange14Msg.min_range = 0.1; 				//float32 [m]
+	USRange14Msg.max_range = 1.2; 				//float32 [m]
+	USRange14Msg.range = ((float)usBoard.sensor[13]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor14.publish(USRange14Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR15-------------------------------------------------------
+	//create USRanger15Msg
+	//fill in header
+	USRange15Header.seq = 1; 				//uint32
+	USRange15Header.stamp = ros::Time::now(); 		//time
+	USRange15Header.frame_id = "usrangesensor15";		//string
+
+	USRange15Msg.header = USRange15Header;
+	USRange15Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange15Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange15Msg.min_range = 0.1; 				//float32 [m]
+	USRange15Msg.max_range = 1.2; 				//float32 [m]
+	USRange15Msg.range = ((float)usBoard.sensor[14]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor15.publish(USRange15Msg);
+	//------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------SENSOR16-------------------------------------------------------
+	//create USRanger16Msg
+	//fill in header
+	USRange16Header.seq = 1; 				//uint32
+	USRange16Header.stamp = ros::Time::now(); 		//time
+	USRange16Header.frame_id = "usrangesensor16";		//string
+
+	USRange16Msg.header = USRange16Header;
+	USRange16Msg.radiation_type = 0; 			//uint8   => Enum ULTRASOUND=0; INFRARED=1
+	USRange16Msg.field_of_view = 1.05; 			//float32 [rad]
+	USRange16Msg.min_range = 0.1; 				//float32 [m]
+	USRange16Msg.max_range = 1.2; 				//float32 [m]
+	USRange16Msg.range = ((float)usBoard.sensor[15]/100); 	//float32 [cm] => [m]
+
+	//publish data for first USrange sensor
+	topicPub_USRangeSensor16.publish(USRange16Msg);
+	//------------------------------------------------------------------------------------------------------------
 }
 void neo_relayboardV2_node::startUSBoard(const std_msgs::Int16& configuration)
 {

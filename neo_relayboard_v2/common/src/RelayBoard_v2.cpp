@@ -224,7 +224,7 @@ int RelayBoardV2::evalRxBuffer()
 		m_iConfigured = cDat[3];
 		//ROS_INFO("Found Motors: %d",cDat[0]);
 		//ROS_INFO("Homed Motors: %d",cDat[1]);
-		//ROS_INFO("Ext Hardware: %d",cDat[2]);
+		ROS_INFO("Ext Hardware: %d",cDat[2]);
 		//ROS_INFO("Configuriert: %d",cDat[3]);
 		return 1;
 	}
@@ -330,7 +330,7 @@ int RelayBoardV2::init(const char* cdevice_name, int iactive_motors, int ihoming
 		ROS_INFO("Ext. Hardware: IOBoard");
 		m_iNumBytesRec += 20;
 	}
-	if((iext_hardware & 2) == 1) //USBoard
+	if((iext_hardware & 0x2) == 0x2) //USBoard
 	{
 		ROS_INFO("Ext. Hardware: USBoard");
 		m_iNumBytesRec += 26;
@@ -713,7 +713,7 @@ void RelayBoardV2::getUSBoardData1To8(int* piUSDistMM)
 	
 	for(i = 0; i < 8; i++)
 	{
-		piUSDistMM[i] = 10 * m_REC_MSG.iUSSensor_Dist[i];
+		piUSDistMM[i] = m_REC_MSG.iUSSensor_Dist[i];
 	}
 
 	m_Mutex.unlock();
@@ -727,7 +727,7 @@ void RelayBoardV2::getUSBoardData9To16(int* piUSDistMM)
 
 	for(i = 0; i < 8; i++)
 	{
-		piUSDistMM[i] = 10 * m_REC_MSG.iUSSensor_Dist[i + 8];
+		piUSDistMM[i] = m_REC_MSG.iUSSensor_Dist[i + 8];
 	}
 
 	m_Mutex.unlock();
@@ -825,7 +825,7 @@ void RelayBoardV2::convRecMsgToData(unsigned char cMsg[])
 	iCnt += 2;
 
 	// IOBoard
-	if(m_iFoundExtHardware & 1 == 1)
+	if((m_iFoundExtHardware & 0x1) == 0x1)
 	{
 		m_REC_MSG.iIODig_In = (cMsg[iCnt + 1] << 8) | cMsg[iCnt];
 		iCnt += 2;
@@ -839,7 +839,7 @@ void RelayBoardV2::convRecMsgToData(unsigned char cMsg[])
 		iCnt += 2;
 	}
 	// USBoard
-	if(m_iFoundExtHardware & 2 == 1)
+	if((m_iFoundExtHardware & 0x2) == 0x2)
 	{
 		for(int i = 0; i < 16; i++)
 		{
