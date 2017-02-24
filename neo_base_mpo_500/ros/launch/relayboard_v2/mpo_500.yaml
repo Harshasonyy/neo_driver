@@ -33,7 +33,7 @@ log: False
 #	mp_400: 	drive 2 and drive 3 should be active
 #	mpo_500: 	drive 2, drive 3, drive 4 and drive 5 should be active
 #	mpo_700:	with cob_packages all drive should be deactivated
-			without cob_packages all drives should be activated
+#			without cob_packages all drives should be activated
 
 drive2:
   motor_active: 1
