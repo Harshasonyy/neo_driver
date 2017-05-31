@@ -3,7 +3,7 @@ project(neo_base_mp_400)
 
 find_package(catkin REQUIRED COMPONENTS
 	neo_platformctrl_diff
-	neo_relayboard
+	neo_relayboard_v2
 	cob_sick_s300
  )
 
